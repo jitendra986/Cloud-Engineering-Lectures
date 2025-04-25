@@ -1,0 +1,387 @@
+
+Join here for devops class notes and class videos : https://classroom.google.com/c/NzUyNTUzODk3NTY2?cjc=i7wtceab 
+
+
+==========================================
+DevOps with Multi Cloud - Master Program
+==========================================
+
+1) Who is your trainer
+
+2) Pre-Requisites
+
+3) Course Content (Road Map)
+
+4) Course Details
+
+5) Q & A
+
+========
+Trainer
+========
+
+Name : Mr. Ashok
+
+IT Exp : 11+ Yrs
+
+Role : Project Manager
+
+Training Exp: 8+ Years
+
+Ashok IT started in 2020
+
+
+===============
+Pre-Requisites
+===============
+
+=> No specific pre-requisites to join this course
+
+=> This is zero to hero course
+
+=> 4 Months of time required
+
+=> Real Intrest to become DevOps engineer
+
+=> Daily Practice (1.5 hr cls + 1.5 hr practice)
+
+=========================================
+Who are eligible to attend this course ?
+=========================================
+
+1) Experienced IT professionals
+
+2) Non-IT people
+
+3) Career Gap people
+
+4) Freshers
+
+Note: DevOps Freshers jobs are not available in the market.
+
+===============
+Course Content
+===============
+
+Module-1 : Software Project Details
+
+			- What is software project
+			- Projects Architecture
+			- Technology Stack
+			- SDLC
+			- Waterfall Model
+			- Agile Mode
+
+Module-2 : DevOps Introduction
+
+			- What is DevOps
+			- Why DevOps
+			- DevOps life cycle
+			- DevOps Tools Overview
+			- Roles & Responsibilities of DevOps Engineer
+
+Module-3 : Linux OS
+
+Module-4 : Shell Scripting
+
+Module-5 : AWS Cloud Services (10+)
+
+Module-6 : DevOps Tools (15+ Tools)
+
+Module-7 : Azure Cloud
+
+Module-8 : GCP Cloud
+
+Module-9 : DevOps Projects Setup
+
+Module-10 : Interview Guidance
+
+#### Note : Pyton Scripting free course (30 days) #####
+
+
+=============
+DevOps Tools
+=============
+
+1) Maven & Gradle
+2) Git Hub & BitBucket
+3) Tomcat
+4) SonarQube
+5) Nexus & JFrog
+6) Docker
+7) Kubernetes
+8) Jenkins
+9) Prometheus
+10) Grafana
+11) ELK
+12) Terraform
+13) Ansible
+14) JIRA
+15) Trivy
+
+=============
+AWS Services
+=============
+
+1) EC2
+2) S3
+3) RDS
+4) IAM
+5) VPC
+6) Beanstack
+7) Lambdas
+8) EFS
+9) CloudWatch
+10) SNS
+11) Route53
+12) EKS
+
+
+Note: After completion of this course we can keep 3 to 4 years of exp in resume to attend interviews.
+
+===============
+Course Details
+===============
+
+Course Name : DevOps with Multi Cloud
+
+Course Code : 37-DevOps
+
+Start Date : Today
+
+Duration : 4 Months
+
+Course Fee : 20, 000 INR (live classes + soft copy notes + Backup videos - 1 year validity)
+
+Class Timings : 8:00 PM to 9:30 PM (IST)
+
+Class Frequency : Mon - Fri (weekly 5 days)
+
+=========
+Benefits
+=========
+
+1) Daily live classes
+
+2) Soft copy notes
+
+3) Backup Videos For Revision (1 year validity)
+
+4) Daily doubts clarifications
+
+5) Whatsapp group / telegram for communication
+
+6) Mock Interviews
+
+7) Topic wise FAQs
+
+
+=========================================
+Module-1 : Software Project Introduction
+=========================================
+
+Q) What is software project ?
+
+=> Collection of software programs is called as Software Project.
+
+=> To develop software programs we will use programming languages
+
+	Ex: C, C++, Java, Python, PHP, C# .Net.....
+
+
+==========================================
+Q) Why to develop software project ?
+==========================================
+
+=> Software projects are used to reduce human efforts and simplify humans life.
+
+	1) IRCTC for train tickets booking
+
+	2) Netbanking for banking operations
+
+	3) Amazon, Flipkart etc for online shopping
+
+	4) Swiggy, zomoto for food orders
+
+	5) BigBasket, Zeptop, Blinkit for grocerries
+
+================================
+Software Project Architecture	
+================================
+
+=> Application contains below 3 layers
+
+	1) Presentation Layer (Frontend)
+
+	2) Business Layer (Backend)
+
+	3) Database (Storage)
+
+=> Front end contains user interface (presentation layer)
+
+	Frontend Technologies : Angular / React JS / Vue JS
+
+=> Bakend contains business logic of the application.
+
+	Backend Technologies : Java, Python, .Net, Node JS, PHP.....
+
+=> Database is used for storage	
+
+	Database: Oracle, MySQL, SQLServer, Postgres, Mongo DB ...
+
+
+========================
+Application Tech Stack	
+========================
+
+App-1 : Angular + Java + Oracle
+
+App-2 : React JS + Java + Mongo DB
+
+App-3 : Angular + Python + MySQL
+
+App-4 : React JS + Dot Net + SQL Server
+
+App-5 : React JS + Node JS + Mongo DB
+
+======================
+Teams in the project
+======================	
+
+1) Business Analysis Team (Functional)
+
+2) Development Team
+
+3) Testing Team
+
+4) Operations Team (DevOps Team)
+
+
+=> Busines Analysis team is responsible to get requirements from the client and document requirements (FDD).
+
+=> Development Team is responsible for coding (develop the project).
+
+=> Testing team is responsible to verify project is working as expected or not.
+
+=> Operations team is responsible for below activites
+
+		a) Infrastructure setup
+
+			Ex: Machines
+				Database
+				Storage
+				Network
+				Monitoring
+				Security
+
+		b) Configuration Management
+
+			Ex: Softwares installation, files copy, os updates.....
+
+		C) Source Code Repostories management	
+		
+		d) Build & Deployment
+
+		e) Application Release (Deliver)						
+
+		f) Infra Monitoring & App Monitoring
+
+===========================================================================
+
+=> Infrastrusture Setup =========> Terraform (AWS + Azure + GCP) 		
+
+=> Configuration Management ========> Ansible
+
+=> Source Code Repositories Management =====> Git Hub / BitBucket / GitLab
+
+=> Build & Deployment =======> Maven + Docker + Kubernetes + Jenkins
+
+=> Infrastructure Monitoring ==========> Prometheus + Grafana
+
+=> Application Monitoring ==========> ELK stack
+
+============================================================================
+
+============================
+What is DevOps & Why DevOps
+============================
+
+DevOps = Development + Operations
+
+=> DevOps is a culture
+
+=> DevOps is a process
+
+=> DevOps means set of best practices.
+
+=> DevOps is used to establish colloboration between dev team & ops team.
+
+=> The main of devops is to simplify & automate & speed up application build & deployment process with high quality.
+
+=> We can deliver application to client quickly by following/adopting devops practices / culture .
+
+==========================================
+How to adopt devops culture in project ?
+==========================================
+
+=> By using set of tools we can adopt DevOps culture in our project. Those tools are called as DevOps tools.
+
+
+1) Terraform : Infrastructure setup
+
+	Ex: Machines, Database, Security, Storage, Network, Backup etc...
+
+=> Using Terraform we can automate infrastructure setup in any cloud platform 
+   (Ex: AWS, Azure, GCP)
+
+2) Ansible :  Configuration Management
+
+	Ex : install softwares, copy files, OS updates...  
+
+3) Git Hub & Bit Bucket : Source Code Management
+
+=> All the developers code should be integrated at once place with tracking.
+
+=> We can use GIT Hub or BitBucket or Git Lab as source code repository servers.
+
+4) Maven & Gradle : Build Tools
+
+=> Build tools are used to convert project source code into executable format.
+
+			JAVA APP ====> JAR FILE OR WAR FILE
+
+			DOT NET  ===> DLL file
+
+5) SonarQube : Code Review	
+
+=> We can use SonarQube to perform project code review and project code quality check.
+
+=> To identify developers mistakes in source code we will perform Code Review.
+
+
+6) Nexus & JFrogs : Artifactory Servers
+
+=> To store project build artifacts like jars, wars, dlls
+
+7) Tomcat & IIS : Webservers
+
+=> Webservers are required to run web applications.
+
+		Java ---> Tomcat
+		DOT Net --> IIS
+		Angular --> Nginx
+		React ----> Nginx
+
+8) Jenkins : CI CD 
+
+=> CI CD means Continuous Integration and Continuous Deployment
+
+9) Docker : Containerization
+
+10) Kubernetes : Orchestration
+
+11) Grafana & Prometheus : Monitoring
+
+12) ELK : ( Elastic Search + Log Stash + Kibana ) Log Monitoring
+
+13) Trivy : Security scans
