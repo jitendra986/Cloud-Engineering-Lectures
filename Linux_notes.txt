@@ -564,7 +564,7 @@ sudo visudo
 How to enable password based authentication for users ?
 ========================================================
 
-=> In linux vm, by default password authentication is no
+=> In linux vm, by default passwordauthentication is no
 
 => If we want to connect with linux vm by using username and password then we need to set passwordauthentication value as yes.
 
@@ -577,7 +577,7 @@ $ sudo cat /etc/ssh/sshd_config
 # Open file
 $ sudo vi /etc/ssh/sshd_config
 
-Note: Go to insert mode and enable pwd based authentication as yes
+Note: Go to insert mode and enable pwdbasedauthentication as yes
 
 # restart sshd service
 # sudo systemctl restart sshd
@@ -786,12 +786,6 @@ sudo service httpd status
 # start httpd server
 sudo service httpd start
 
-# stop httpd server
-sudo service httpd stop
-
-# restart httpd server
-sudo service httpd restart
-
 Note: httpd webserver runs on http protocol with 80 port number.
 
 Note: To access our webserver we need to enable http protocol in Ec2 vm security group inbound rules.
@@ -881,10 +875,88 @@ kill <PID>
 # terminate process immediatley (forcefully)
 kill -9 <PID>
 
-==============================================================================
-Assignment : How to copy a file from one linux vm to another linux vm.
+
+===========================
+Working with Link Files
+===========================
+
+=> In linux we can create link files ( similar to shorcut files in windows )
+
+=> We have 2 types of link files in linux
+
+	1) Hard link
+
+	2) Soft link (symbolic link)	
+
+--------------------------------
+Syntax To create Hard Link
+--------------------------------
+
+$ ln <orginal-file> <link-file>
+
+$ touch f1.txt
+
+$ ln f1.txt f100.txt	
+
+Note: f100.txt is link file for f1.txt
+
+Note: If we write some data to original file, it is reflecting in link file also.
+
+Note: when we delete original file, link file is not effected (hard link).
+
+------------------------------
+Syntax To create Soft Link 
+------------------------------
+
+$ ln -s <orginal-file> <link-file>
+
+Ex:
+
+$ touch s1.txt
+
+$ ln -s s1.txt s100.txt
+
+$ cat >> s1.txt
+
+Note: Original file data reflecting in soft link file also.
+
+Note: When we remove original file then soft link file will become dangling file. 
+     We can't access that file.
+
 ==============================================================================
 
+Assignment : How to copy a file from one linux vm to another linux vm.
+
+Solution : scp -i "pem file" /file/path/ uname@public-ip:/dest/path/
+
+# Step-1 : Connect with vm-1 using mobaxterm
+
+# Step-2 : Upload pem file and give read permission
+
+			chmod 400 <pem-file-name>
+
+# Step-3 : Create file in vm-1 using cat or vi command
+
+# Step-4 : Execute scp command to copy file from vm-1 to vm-2
+
+Ex: $ scp -i "awslab.pem"	os.txt ec2-user@vm2-public-ip:/home/ec2-user/
+
+# Step-5 : Connect with vm-2 and file copied or not.
+
+==========================================================
+How to copy files from windows machine to linux machine ?
+==========================================================
+
+=> By using "WinSCP" tool we can copy files from windows to linux and vice versa.
+
+=> WinSCP is a GUI tool to connect from windows to linux machine.
+
+			left side : windows file system
+
+			right side : linux file system
+
+
+=============================================================
 1) whoami
 2) pwd
 3) date
@@ -935,7 +1007,7 @@ Assignment : How to copy a file from one linux vm to another linux vm.
 
 41) whereis <pkg-name>
 
-42) uptime: to check Linux machine execution time.
+42) uptime
 
 43) free :  system memory usage
 
@@ -950,8 +1022,7 @@ Assignment : How to copy a file from one linux vm to another linux vm.
 
 47) uname -a : all system info
 
-48) hostname : give name of host
-sudo hostname test-server (change the name of host from ec2-user to  test-server)
+48) hostname 
 
 49) arch : CPU architecture
 
@@ -960,3 +1031,152 @@ sudo hostname test-server (change the name of host from ec2-user to  test-server
 51) df -h : show disc space
 
 52) du -sh * : show disc usage
+
+53) ln : to work with link files
+
+54) scp : secured copy
+
+=========
+Summary
+=========
+
+1) What is Linux OS
+2) Windows Vs Linux
+3) Linux VM Setup in AWS cloud
+4) Connecting with Linux VM using SSH client
+5) Directories & Files Based Operations
+6) Text Editors
+7) Text filters
+8) User & Group Management
+9) File Permissions
+10) File Ownership
+11) Archieves
+12) Networking
+13) suderos file
+14) sshd_config
+15) package managers
+16) static website hosting (httpd)
+17) Service Management (systemctl)
+18) Process management
+19) Working with link files
+20) Changing Hostname
+
+
+=======================================
+Linux Important Interview Questions
+=======================================
+
+
+1) What is the difference between Linux and Unix?
+
+Linux : Free Os
+
+Unix : Proprioty os
+
+2) How do you find out what process is using a specific port like 8080 ?
+
+sudo lsof -i :8080
+
+
+3) What does the 'chmod 755' command do?
+
+owner (7) : read + write + execute
+
+group (5) : read + execute
+
+others (5) : read + execute
+
+4) Whatâ€™s the difference between a soft link and a hard link?
+
+Soft link (symlink): Points to the file path
+
+Hard link: Points to the fileâ€™s inode. Still works if original file is deleted.
+
+
+5) What are file permissions in Linux? How do you change them?
+
+rwxrwxrwx
+
+chmod
+
+6) How do you check disk space usage?
+
+df -h
+
+du -sh /dir/path/
+
+7) What command is used to view system logs?
+
+journalctl
+
+8) What is the difference between apt and yum?
+
+yum â†’ RHEL-based (CentOS, Fedora, Amazon Linux)
+
+apt â†’ Debian-based (Ubuntu)
+
+9) How do you add a user to a group?
+
+sudo usermod -aG <group-name> <user-name>
+
+10) How do you search for a string in a file using the terminal?
+
+grep "search_term" filename
+
+11) What is the difference between /etc/passwd and /etc/shadow ?
+
+/etc/passwd: User details
+
+/etc/shadow: Encrypted passwords (more secure)
+
+12) How do you manage services with systemd?
+
+using systemctl we can manage services
+
+systemctl start nginx
+systemctl enable docker
+systemctl status sshd
+
+13) how to find 30 days old files in linux ?
+
+using find command with mtime.
+
+14) How to find linux vm os family details
+
+cat /etc/os-release
+
+15) How to find linux kernel version
+
+uname -r
+
+16) How to find user belongs to which groups ?
+
+id <uname>
+
+17) How to check linux machine execution time ?
+
+uptime
+
+18) How to change file/directory owner in linux ?
+
+chown
+
+19) How to enable pwd based authentication in linux ?
+
+we need to enable in "/etc/sshd/sshd_config" file
+
+20) how to provide sudo priviliages for a user in linux ?
+
+by configuring user in sudoers file  (visudo)
+
+21) How to create a user without home directory ?
+
+# create user along with home directory
+sudo useradd john
+
+# create user without home directory
+sudo useradd -M smith
+
+22) how to change password for the user ?
+
+sudo passwd <username>

@@ -1,0 +1,210 @@
+
+============
+Webservers
+============
+
+=> Server is a software which is used to run web applications.
+
+=> The process of executing web application by using server is called as Deployment.
+
+=> Server is responsible to handle user requests & response.
+
+=> Users can access web application by sending request to server.
+
+=> End Users will use client s/w to send request to server
+
+	Ex: Browser (google chrome, Firefox, Edge)
+
+=> We have several servers in the market to run our web applications.
+
+	1) Tomcat
+	2) JBOSS
+	3) Web Logic (oracle, licensed)
+	4) Web Sphere (ibm, licensed)
+	5) IIS (for dot net)
+
+Note: To run web application, server is mandatory.
+
+=> As a devops engineer we are responsible for project "build and deployment" process.
+
+============================
+What is Build & Deployment
+============================
+
+	Build = Compile + Execute Test cases + Package
+
+	Deployment = Executing project using Server
+
+==============
+Tomcat Server
+==============
+
+=> Tomcat is free & open source s/w
+
+=> Tomcat is a web server developed by Apache Organization.
+
+=> Tomcat server developed using Java language.
+
+Note: To run tomcat server, java s/w should be installed.
+
+=> Tomcat server is used to run Java based Web Applications.
+
+=> Tomcat supports multiple operating systems.
+
+=> Tomcat server runs on 8080 port number (we can change it).
+
+=======================
+Tomcat Setup In Linux
+=======================
+
+=> Create Linux VM using Amazon Linux AMI in AWS Cloud (t2.micro).
+
+=> Connect to Linux VM using ssh client
+
+=> Install maven software
+
+	ex: sudo yum install maven
+
+Note: When we install maven, java s/w also gets installed automatically.
+
+	mvn -version
+	java -version
+
+=> We can download tomcat software from its offical website
+
+  URL : https://tomcat.apache.org/download-90.cgi	
+
+=> Download tomcat server zip file
+
+$ wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.104/bin/apache-tomcat-9.0.104.zip
+
+=> Extract zip file
+
+	Ex: unzip <zip-file-name>
+
+=> Go inside tomcat directory and see directory structure
+
+	$ cd <tomcat-dir>
+
+	$ ls -l	
+
+===================================
+Tomcat Server directory structure
+===================================	
+
+1) bin : It contains files to start & stop server (windows : .bat , Linux : .sh)
+
+		windows: startup.bat & shutdown.bat
+
+		Linux : statup.sh & shutdown.sh
+
+2) conf : It contains tomcat server configuration files.
+
+	ex: server.xml, tomcat-users.xml, context.xml
+
+3) webapps : It is called as deployment folder. We will keep war files here for execution.
+
+4) lib : It contains libraries required for server (jars).
+
+5) temp : Temporary files will be created here (We can delete them).
+
+6) logs : Server log messages will be stored here.
+
+
+============================
+Web app deployment process
+============================
+
+## Step-1 :: Create Maven web application in ec2-user home directory ##
+
+mvn archetype:generate -DgroupId=in.ashokit -DartifactId=my-web-app -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4 -DinteractiveMode=false
+
+cd <project-dir>
+
+ls -l
+
+## Step-2 :: Build project using maven goal ##
+
+mvn clean package
+
+ls -l 
+
+ls -l target
+
+## Step-3 :: Copy application war file into tomact-server webapps folder for execution ##
+
+cp <app-war-file-path> <tomcat-webapps-dir-path>
+
+Ex: cp my-web-app/target/my-web-app.war tomcat/webapps/
+
+## Step-4 :: Start tomcat server from bin directory ##
+
+cd apache-dir/bin
+
+ls -l
+
+chmod 777 catalina.sh
+chmod 777 startup.sh
+
+# Run tomcat server
+sh startup.sh
+
+
+## Step-5 :: Enable Tomcat server port number 8080 in Ec2 VM Security Group Inbound Rules.
+
+## Step-6 :: Access our web application using browser
+
+		URL : http://public-ip:8080/my-web-app/
+
+
+Note: To edit msg displaying in the web-application we need to modify index.jsp file
+
+$ vi my-web-app/src/main/webapp/index.jsp
+
+Note: After modifying index.jsp file we need to re-build and re-deploy our application.
+
+
+===========================================
+How to change tomcat server port number ?
+==========================================
+
+=> Tomcat server default port is 8080
+
+=> We can change this port number by using "server.xml" file
+
+		File location : tomcat-dir/conf/server.xml
+
+		$ vi tomcat-dir/conf/server.xml
+
+		$ sed -i 's/8080/9090/g' tomcat-dir/conf/server.xml
+
+=> After changing the port number stop and start tomcat server.
+
+		cd tomcat-dir/bin
+		sh shutdown.sh
+		sh startup.sh
+
+=> Enable new port number in EC2 VM Security Group inbound rules.
+
+=> Access our web application using browser
+
+	URL : http://public-ip:new-port/my-web-app/
+
+
+===================
+Tomcat - Summary	
+===================	
+
+1) What is client-server architecture
+
+2) What is Tomcat
+
+3) Tomcat Setup in Linux
+
+4) Tomcat Server directory structure
+
+5) War file deployment
+
+6) Accessing Web app in browser
+
+7) Changing Tomcat Server Port Number

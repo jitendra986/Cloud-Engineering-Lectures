@@ -1,0 +1,337 @@
+
+=================================
+Source Code Repository Servers
+=================================
+
+=> In a project multiple developers will work.
+
+=> Developers may work from different locations.
+
+=> We are going face below challenges with team work.
+
+	1) How to integrate all the team members code at one place ?
+
+	2) How to monitor code changes happening in the project ?
+
+=> To handle above 2 problems we can use Source Code Repository servers.
+
+=> Below softwares we can use as source code repository servers 
+
+		1) SVN (outdated)
+
+		2) GIT Hub (Microsoft)
+
+		3) Bit Bucket (Atlasian)
+
+========
+Git Hub 
+========		
+
+=> Git Hub is a cloud platform which is used to maintain source code repositories for our projects.
+
+=> Git Hub will provide monitored access for source code repositories.
+
+		- who modified
+		- when modified
+		- why modified
+		- what modified
+
+Note: GIT we will use as a client s/w to communicate with git hub repos.	
+
+===================
+Environment Setup
+===================
+
+1) Create account in www.github.com (free of cost)
+
+2) Download & Install 'git client' software in our system
+
+		URL : https://git-scm.com/downloads
+
+3) Open Git bash and configure your name and your email using below commands
+
+		$ git config --global user.name "your-name"		
+
+		$ git config --global user.email "your-email"
+
+Note: Configuring name and email is just one time process in git bash.
+
+
+===============================
+What is Git Hub Repository ?
+===============================
+
+=> Repository is a place where we can store project source code / files.
+
+=> For every project one git hub repository will be created by DevOps team.
+
+	1) Public Repo (anybody can see & you choose who can commit)
+
+	2) Private Repo (you choose who can see & who can commit)
+
+@@ Project Git Repo URL : https://github.com/ashokitschool/01_health_insurance_app.git
+
+=> Project team members will connect with git repository using its URL.
+
+Note: Team members will use git client software to connect with repository and they will perform operations in git hub repo..
+
+==================
+Git Architecture
+=================
+
+1) Working Tree
+
+2) Staging Area
+
+3) Local Repository
+
+4) Central Repository (Remote)
+
+==================
+Git Bash Commands
+==================
+
+git init : Initialize working tree (.git folder will be created)
+
+git status : display working tree status (staged and un-staged)
+
+		red-color-file-name : not added to staging area
+
+		green-color-file-name : added to staging area
+
+git add : Add file(s) to staging area
+
+		git add <file-name>
+
+		git add .
+
+git commit : Commit only staged files to local repo
+
+		git commit -m <msg>	
+
+git remote add <url> : To add remote repo url in working tree
+
+git push : publish local commits to central repo
+
+git restore : To unstage the file + to discard changes in working tree.
+
+git log : to display commit history
+
+git rm : to remove file
+
+			git rm <file-name>
+
+Note: After 'git rm' execution we need to execute commit and push to delete file from central repo.
+
+git clone : to download central repo to local system.
+
+	$ git clone <repo-url>
+
+git pull : download only latest changes from central repo to working tree.
+
+
+========================
+What is git conflict ?	
+========================
+
+=> When we are merging central repo changes with working tree then we may get git conflict problem.
+
+=> If two persons working on same file then we may get conflicts problem.
+
+=> When conflict occurs we have to resolve those conflicts and we have to commit without conflicts.
+
+Note: When we execute 'git pull' command there is a chance of getting conflicts.
+
+
+===================================
+Q) how to remove git local commits
+===================================
+
+=> Using 'git reset' command we can remove local commits
+
+=> Git Reset we can do in 2 ways 
+
+		1) soft reset
+
+		2) hard reset
+
+=> soft reset means only local commit will be deleted and file changes will be there in staging area.
+
+	Ex : $ git reset --soft HEAD~1
+
+=> hard reset means local commit will be deleted and file changes also will be deleted from working tree.
+	
+	Ex : $ git reset --hard HEAD~1
+
+============================================
+Q) how to revert git central repo commits
+============================================	
+
+=> Using 'git revert' command we can revert code changes from central repo.
+
+Ex : git revert <commit-id>
+
+Note: After git revert execution we need execute git push.
+
+
+================
+What is Git Gui
+================
+
+=> It is a desktop tool to perform git operations
+
+=> Execute below command in working tree to open git gui
+
+		$ git gui
+
+===========================
+What is .gitignore file ?
+===========================		
+
+=> It is used to specify files and folder to skip from git operations.
+
+ex:
+
+.settings
+.classpath
+.project
+
+target/
+
+
+==============
+Git Branches
+==============
+
+=> Assume that in our project 20 developers available 
+
+=> All 20 developers are divided into 4 sub teams like below
+
+	1) New Enhancements team => 5 ppl
+
+	2) Research & Dev team => 5 ppl
+
+	3) CR Team => 5 ppl
+
+	4) Support Team => 5 ppl
+
+=> When multiple teams working on same repo then project delivery will become very difficult.
+
+=> To make our project delivery process simple, we need to maintain multiple branches in one git hub repo.
+
+	Ex: main, develop, feature, research, release....
+
+=> By using git branches, multiple teams can work paralelly and we can make project delivery process simple.
+
+
+
+$ git clone https://github.com/ashokitschool/01_health_insurance_app.git
+
+$ git clone -b <branch-name> <repo-url>
+
+========================
+What is pull request ?
+========================
+
+=> It is used to merge changes from one branch to another branch.
+
+	ex: merge develop branch changes to main branch
+
+=========
+Lab Task
+=========	
+
+1) Go to git hub repository and create develop branch from main branch
+
+2) clone git repo (by default main branch will come)
+
+	$ git clone <url>
+
+3) Switch from main to develop
+	
+	$ git checkout develop
+
+4) Create a file in working tree and push to develop branch
+
+5) Create pull request and merge develop branch changes to main branch.		
+
+			or
+
+6) switch from develop branch to main branch and merge develop branch changes to main branch using git bash
+
+		$ git checkout main
+		$ git merge develop
+		$ git push
+
+
+===========================
+What is git cherrypick ?	
+===========================
+
+=> It is used to merge pariticular commit from one branch to another branch.
+
+$ git cherry-pick <commit-id>	
+
+
+================================
+What is branching strategy ?
+================================
+
+=> It is the process of deciding which team should use which branch for code integration in the project 
+	
+		a) main  --> final code base
+
+		b) develop --> development activities
+
+		c) qa ---> bug fixing activities
+
+		d) feature --> new enhancements activities
+
+		e) research --> R & D activities
+
+Note: As part of branching strategy our management will decide from branch we need to deliver project to client.
+
+======================
+What is git fork ?
+======================
+
+=> It is used to copy someone's git repo into our git hub account.
+
+Use case: Forking is commonly used in open-source contributions, where you don't have write access to the main project but still want to contribute.
+
+
+======================
+What is code freeze ?
+======================
+
+=> When there is a production deployment then we will lock branch to stop code commits. so that we can make delivery process simple.
+
+Note: If we don't go for code freeze due to minute commits existing fucntionality may brake and it may effect on delivery process.
+
+
+====================
+What is git stash ?
+====================
+
+=> git stash is a powerful Git command that allows you to temporarily save your uncommitted changes without committing them to the repository.
+
+## usecase :: 
+
+9:00 AM IST --> assigned task for me (JIRA-101)
+... i am working on that
+    few changes completed
+
+
+2:00 PM IST --> assigned high priority task for me (JIRA-102)
+		
+	stop 101 and complete 102 first and push
+
+	once 102 changes pushed then continue with 101 ..  
+
+Note: In this scenario we can use git stash option.	
+
+$ git stash
+
+$ git stash apply
+
+=================================
